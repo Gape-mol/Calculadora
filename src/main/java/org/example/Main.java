@@ -10,52 +10,44 @@ public class Main {
     // Perimetro: lado x 4
     // Area: lado x lado
     public static float perimetroCuadrado(float lado) {
-        float perimetro = lado * 4;
-        return perimetro;
+        return lado * 4;
     }
 
     public static float areaCuadrado(float lado) {
-        float area = lado * lado;
-        return area;
+        return lado * lado;
     }
 
     //Rectángulo:
     // Perimetro: (base x 2) + (altura x 2)
     // Area: base x altura
     public static float perimetroRectangulo(float base, float altura) {
-        float perimetro = (base * 2) + (altura * 2);
-        return perimetro;
+        return (base * 2) + (altura * 2);
     }
 
     public static float areaRectangulo(float base, float altura) {
-        float area = base * altura;
-        return area;
+        return base * altura;
     }
 
     //Círculo:
     // Perimetro: 2 x pi x radio
     // Area: pi x radio x radio
     public static double perimetroCirculo(float radio) {
-        double perimetro = 2 * Math.PI * radio;
-        return perimetro;
+        return 2 * Math.PI * radio;
     }
 
     public static double areaCirculo(float radio) {
-        double area = Math.PI * radio * radio;
-        return area;
+        return Math.PI * radio * radio;
     }
 
     //Esfera:
     // Area: 4 x pi x radio x radio
     // Volumen: (4/3) x pi x radio x radio x radio
     public static double areaEsfera(float radio) {
-        double area = 4 * areaCirculo(radio);
-        return area;
+        return 4 * areaCirculo(radio);
     }
 
     public static double volumenEsfera(float radio) {
-        double volumen = (4 / 3) * Math.PI * radio * radio * radio;
-        return volumen;
+        return ((double) 4 / 3) * Math.PI * radio * radio * radio;
     }
 
     //Cubo:
@@ -63,18 +55,15 @@ public class Main {
     // Volumen: lado x lado x lado
     // Area: 6 x lado x lado
     public static float perimetroCubo(float lado) {
-        float perimetro = 3 * perimetroCuadrado(lado);
-        return perimetro;
+        return 3 * perimetroCuadrado(lado);
     }
 
     public static float areaCubo(float lado) {
-        float area = 6 * areaCuadrado(lado);
-        return area;
+        return 6 * areaCuadrado(lado);
     }
 
     public static float volumenCubo(float lado) {
-        float volumen = areaCuadrado(lado) * lado;
-        return volumen;
+        return areaCuadrado(lado) * lado;
     }
 
     //Cono:
@@ -83,12 +72,10 @@ public class Main {
     public static double areaCono(float radio, float altura) {
         double areaCirculo = areaCirculo(radio);
         double areaTriangulo = Math.PI * radio * (Math.sqrt((radio * radio) + (altura * altura)));
-        double areaTotal = areaCirculo + areaTriangulo;
-        return areaTotal;
+        return areaCirculo + areaTriangulo;
     }
 
     public static double volumenCono(float radio, float altura) {
-        double volumen = (Math.PI * (radio * radio) * altura) / 3;
-        return volumen;
+        return (Math.PI * (radio * radio) * altura) / 3;
     }
 }
