@@ -26,7 +26,17 @@ public class Main {
     }
 
     public static float areaCuadrado(float lado) {
-        return lado * lado;
+        try{
+        if (lado <= 0) {
+            throw new IllegalArgumentException("El lado no puede ser menor o igual a 0");
+        } else {
+            System.out.println(lado*lado);
+            return lado * lado;
+        }
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return 0;
+        }
     }
 
     //Rectángulo:
