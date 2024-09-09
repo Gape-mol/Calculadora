@@ -10,7 +10,19 @@ public class Main {
     // Perimetro: lado x 4
     // Area: lado x lado
     public static float perimetroCuadrado(float lado) {
-        return lado * 4;
+        try {
+            if (lado <= 0) {
+                throw new IllegalArgumentException("El lado no puede ser menor o igual a 0");
+            } else {
+                //la multiplicacion por diez y la division por diez es para redondear a un decimal
+                lado = Math.round(lado * 10);
+                System.out.println((lado * 4)/10);
+                return (lado * 4)/10;
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return 0;
+        }
     }
 
     public static float areaCuadrado(float lado) {
