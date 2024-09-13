@@ -2,20 +2,42 @@ package org.example;
 
 public class Main {
 
-// Ax + By = C
-// Dx + Ey = F
+// Actividad 1
 
-    public static String resolverSistemaEcuaciones(double numeroA, double numeroB, double numeroC,
-                                                   double numeroD, double numeroE, double numeroF) {
-        double [][] sistemaEcuaciones = new double[2][3];
+//Funcion para determinar el mayor entre 2 numeros
 
-        sistemaEcuaciones[0][0] = numeroA;
-        sistemaEcuaciones[0][1] = numeroB;
-        sistemaEcuaciones[0][2] = numeroC;
-        sistemaEcuaciones[1][0] = numeroD;
-        sistemaEcuaciones[1][1] = numeroE;
-        sistemaEcuaciones[1][2] = numeroF;
-
-
+    public static double numeroMayor(double numero1, double numero2) {
+        double mayor = 0;
+        if (numero1 > numero2) {
+            mayor = numero1;
+            return mayor;
+        } else if (numero2 > numero1) {
+            mayor = numero2;
+            return mayor;
+        } else if (numero1 == numero2) {
+            mayor = numero2;
+            return mayor;
+        } else {
+            return mayor;
+        }
     }
+
+//Funcion para encontrar el menor de 2 numeros
+
+    public static double numeroMenor(double numero1, double numero2) {
+        double menor = 0;
+        if (numero1 < numero2) {
+            menor = numero1;
+            return menor;
+        } else if (numero2 < numero1) {
+            menor = numero2;
+            return menor;
+        } else if (numero1 == numero2) {
+            menor = numero2;
+            return menor;
+        } else {
+            return menor;
+        }
+    }
+
 }
