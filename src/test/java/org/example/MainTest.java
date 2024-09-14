@@ -33,4 +33,13 @@ class MainTest {
         assertEquals(1, Main.elevarAPotencia(0, 0));
     }
 
+    @Test
+    void porcentajeDeNumero() {
+        assertEquals(50, Main.porcentajeDeNumero(100, 50));
+
+        assertEquals(1.5, Main.porcentajeDeNumero(1, 150));
+
+        assertEquals(0 , Main.porcentajeDeNumero(1289401.98, 0));
+    }
+
 }

@@ -51,4 +51,11 @@ public class Main {
         }
         return resultado;
     }
+
+//Funcion para calcular el porcentaje de un numero
+
+    public static double porcentajeDeNumero (double numero, double porcentaje){
+        return numero * porcentaje/100;
+    }
+
 }
