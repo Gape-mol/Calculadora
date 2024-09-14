@@ -24,4 +24,13 @@ class MainTest {
         assertEquals(10, Main.numeroMenor(10, 10));
     }
 
+    @Test
+    void elevarAExponente() {
+        assertEquals(8, Main.elevarAPotencia(2,3));
+
+        assertEquals(0.5, Main.elevarAPotencia(2, -1));
+
+        assertEquals(1, Main.elevarAPotencia(0, 0));
+    }
+
 }
