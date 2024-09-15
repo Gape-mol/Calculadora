@@ -2,201 +2,162 @@ package org.example;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+
     }
 
-    //Actividad 3
-    //Cuadrado:
-    // Perimetro: lado x 4
-    // Area: lado x lado
-    public static float perimetroCuadrado(float lado) {
+    // Cuadrado
+    public static double perimetroCuadrado(double lado) {
         try {
-            if (lado <= 0) {
-                throw new IllegalArgumentException("El lado no puede ser menor o igual a 0");
-            } else {
-                //la multiplicacion por diez y la division por diez es para redondear a un decimal
-                lado = Math.round(lado * 10);
-                System.out.println((lado * 4)/10);
-                return (lado * 4)/10;
-            }
+            validarLado(lado);
         } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
             return 0;
         }
+        return lado * 4;
     }
 
-    public static float areaCuadrado(float lado) {
-        try{
+    public static double areaCuadrado(double lado) {
+        try {
+            validarLado(lado);
+        } catch (IllegalArgumentException e) {
+            return 0;
+        }
+        return lado * lado;
+    }
+
+    // Rectángulo
+    public static double perimetroRectangulo(double base, double altura) {
+        try {
+            validarBaseAltura(base, altura);
+        } catch (IllegalArgumentException e) {
+            return 0;
+        }
+        return (base * 2) + (altura * 2);
+    }
+
+    public static double areaRectangulo(double base, double altura) {
+        try {
+            validarBaseAltura(base, altura);
+        } catch (IllegalArgumentException e) {
+            return 0;
+        }
+        return base * altura;
+    }
+
+    // Círculo
+    public static double perimetroCirculo(double radio) {
+        double pi = 3.1416;
+        try {
+            validarRadio(radio);
+        } catch (IllegalArgumentException e) {
+            return 0;
+        }
+        return 2 * pi * radio;
+    }
+
+    public static double areaCirculo(double radio) {
+        double pi = 3.1416;
+        try {
+            validarRadio(radio);
+        } catch (IllegalArgumentException e) {
+            return 0;
+        }
+        return pi * radio * radio;
+    }
+
+    // Esfera
+    public static double areaEsfera(double radio) {
+        double pi = 3.1416;
+        try {
+            validarRadio(radio);
+        } catch (IllegalArgumentException e) {
+            return 0;
+        }
+        return 4 * pi * radio * radio;
+    }
+
+    public static double volumenEsfera(double radio) {
+        double pi = 3.1416;
+        try {
+            validarRadio(radio);
+        } catch (IllegalArgumentException e) {
+            return 0;
+        }
+        return (4.0 / 3.0) * pi * radio * radio * radio;
+    }
+
+    // Cubo
+    public static double perimetroCubo(double lado) {
+        try {
+            validarLado(lado);
+        } catch (IllegalArgumentException e) {
+            return 0;
+        }
+        return 12 * lado;
+    }
+
+    public static double areaCubo(double lado) {
+        try {
+            validarLado(lado);
+        } catch (IllegalArgumentException e) {
+            return 0;
+        }
+        return 6 * lado * lado;
+    }
+
+    public static double volumenCubo(double lado) {
+        try {
+            validarLado(lado);
+        } catch (IllegalArgumentException e) {
+            return 0;
+        }
+        return lado * lado * lado;
+    }
+
+    // Cono
+    public static double areaCono(double radio, double altura) {
+        double pi = 3.1416;
+        try {
+            validarRadioAltura(radio, altura);
+        } catch (IllegalArgumentException e) {
+            return 0;
+        }
+        double areaCirculo = areaCirculo(radio);
+        double areaTriangulo = Math.sqrt((radio * radio) + (altura * altura)) * pi * radio;
+        return areaCirculo + areaTriangulo;
+    }
+
+    public static double volumenCono(double radio, double altura) {
+        double pi = 3.1416;
+        try {
+            validarRadioAltura(radio, altura);
+        } catch (IllegalArgumentException e) {
+            return 0;
+        }
+        return (pi * radio * radio * altura) / 3;
+    }
+
+    // Validacion
+    private static void validarLado(double lado) {
         if (lado <= 0) {
             throw new IllegalArgumentException("El lado no puede ser menor o igual a 0");
-        } else {
-            System.out.println(lado*lado);
-            return lado * lado;
-        }
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            return 0;
         }
     }
 
-    //Rectángulo:
-    // Perimetro: (base x 2) + (altura x 2)
-    // Area: base x altura
-    public static float perimetroRectangulo(float base, float altura) {
-        try {
-            if (base <= 0 || altura <= 0) {
-                throw new IllegalArgumentException("La base y la altura no pueden ser menores o iguales a 0");
-            } else {
-                return (base * 2) + (altura * 2);
-            }
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            return 0;
+    private static void validarBaseAltura(double base, double altura) {
+        if (base <= 0 || altura <= 0) {
+            throw new IllegalArgumentException("La base y la altura no pueden ser menores o iguales a 0");
         }
     }
 
-    public static float areaRectangulo(float base, float altura) {
-        try {
-            if (base <= 0 || altura <= 0) {
-                throw new IllegalArgumentException("La base y la altura no pueden ser menores o iguales a 0");
-            } else {
-                return base * altura;
-            }
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            return 0;
+    private static void validarRadio(double radio) {
+        if (radio <= 0) {
+            throw new IllegalArgumentException("El radio no puede ser menor o igual a 0");
         }
     }
 
-    //Círculo:
-    // Perimetro: 2 x pi x radio
-    // Area: pi x radio x radio
-    public static double perimetroCirculo(float radio) {
-        try {
-            if (radio <= 0) {
-                throw new IllegalArgumentException("El radio no puede ser menor o igual a 0");
-            } else {
-                return 2 * Math.PI * radio;
-            }
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            return 0;
-        }
-    }
-
-    public static double areaCirculo(float radio) {
-        try {
-            if (radio <= 0) {
-                throw new IllegalArgumentException("El radio no puede ser menor o igual a 0");
-            } else {
-                return Math.PI * radio * radio;
-            }
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            return 0;
-        }
-    }
-
-    //Esfera:
-    // Area: 4 x pi x radio x radio
-    // Volumen: (4/3) x pi x radio x radio x radio
-    public static double areaEsfera(float radio) {
-        try {
-            if (radio <= 0) {
-                throw new IllegalArgumentException("El radio no puede ser menor o igual a 0");
-            } else {
-                return 4 * Math.PI * radio * radio;
-            }
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            return 0;
-        }
-    }
-
-    public static double volumenEsfera(float radio) {
-        try {
-            if (radio <= 0) {
-                throw new IllegalArgumentException("El radio no puede ser menor o igual a 0");
-            } else {
-                return ((double) 4 / 3) * Math.PI * radio * radio * radio;
-            }
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            return 0;
-        }
-    }
-
-    //Cubo:
-    // Perimetro: 12 x lado
-    // Volumen: lado x lado x lado
-    // Area: 6 x lado x lado
-    public static float perimetroCubo(float lado) {
-        try {
-            if (lado <= 0) {
-                throw new IllegalArgumentException("El lado no puede ser menor o igual a 0");
-            } else {
-                return 12 * lado;
-            }
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            return 0;
-        }
-    }
-
-    public static float areaCubo(float lado) {
-        try {
-            if (lado <= 0) {
-                throw new IllegalArgumentException("El lado no puede ser menor o igual a 0");
-            } else {
-                return 6 * lado * lado;
-            }
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            return 0;
-        }
-    }
-
-    public static float volumenCubo(float lado) {
-        try {
-            if (lado <= 0) {
-                throw new IllegalArgumentException("El lado no puede ser menor o igual a 0");
-            } else {
-                return lado * lado * lado;
-            }
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            return 0;
-        }
-    }
-
-    //Cono:
-    // Area: pi x radio x radio + raiz cuadrada de (radio x radio + altura x altura)
-    // Volumen: pi x radio x radio x altura)/3
-    public static double areaCono(float radio, float altura) {
-        try {
-            if (radio <= 0 || altura <= 0) {
-                throw new IllegalArgumentException("El radio y la altura no pueden ser menores o iguales a 0");
-            } else {
-                double areaCirculo = areaCirculo(radio);
-                double areaTriangulo = Math.PI * radio * (Math.sqrt((radio * radio) + (altura * altura)));
-                return areaCirculo + areaTriangulo;
-            }
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            return 0;
-        }
-    }
-
-    public static double volumenCono(float radio, float altura) {
-        try {
-            if (radio <= 0 || altura <= 0) {
-                throw new IllegalArgumentException("El radio y la altura no pueden ser menores o iguales a 0");
-            } else {
-                return ((Math.PI * (radio * radio) * altura) / 3);
-            }
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            return 0;
+    private static void validarRadioAltura(double radio, double altura) {
+        if (radio <= 0 || altura <= 0) {
+            throw new IllegalArgumentException("El radio y la altura no pueden ser menores o iguales a 0");
         }
     }
 }
