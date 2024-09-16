@@ -45,4 +45,18 @@ class MainTest {
     public void testSegundaSolucion2() {
         assertEquals(-6,Main.calcularSegundaSolucion(1,8,16));
     }
+
+    @Test
+    public void testSolucionSistema() {
+        double[] resultado = Main.resolverSistema(1,2,3,4,5,6);
+        assertEquals(-1.0, resultado[0], "x es -1");
+        assertEquals(2.0, resultado[1], "y es 2");
+    }
+
+    @Test
+    public void testSolucionSistema2() {
+        double[] resultado = Main.resolverSistema(2,1,3,4,5,6);
+        assertEquals(1.5, resultado[0], "x es 1.5");
+        assertEquals(-0.0, resultado[1], "y es 0");
+    }
 }
