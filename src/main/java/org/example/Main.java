@@ -1,11 +1,18 @@
+
+
 package org.example;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-
+    public static String Calculo(int x1, int x2, int y1, int y2) {
+        int pendiente = (y2 - y1)/(x2 -x1);
+        System.out.println("La pendiente de la recta es " + pendiente);
+        int termino_independiente = y1 - pendiente * x1;
+        System.out.println("El término independiente es " + termino_independiente);
+        return "Y = " + pendiente + "*X + " + termino_independiente;
     }
 
-    // Cuadrado
+      // Cuadrado
     public static double perimetroCuadrado(double lado) {
         try {
             validarLado(lado);
@@ -159,5 +166,4 @@ public class Main {
         if (radio <= 0 || altura <= 0) {
             throw new IllegalArgumentException("El radio y la altura no pueden ser menores o iguales a 0");
         }
-    }
 }
